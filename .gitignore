@@ -1,5 +1,6 @@
 # 개인적인 가상환경 gitignore 등록
 myvenv
+secrets.json
 
 # 아래는 장고 gitignore 템플릿
 # Created by https://www.toptal.com/developers/gitignore/api/python,venv

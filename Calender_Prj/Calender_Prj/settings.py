@@ -192,3 +192,5 @@ SIMPLE_JWT = {
 
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
+LOGIN_REDIRECT_URL = 'http://localhost:8000/accounts/user/'

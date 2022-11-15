@@ -12,15 +12,15 @@ class UserSerializer(serializers.ModelSerializer):
         
 class CustomRegisterSerializer(RegisterSerializer):
     username = serializers.CharField()
-    # first_name = serializers.CharField()
-    # gender = serializers.ChoiceField(choices=User.GenderChoices)
-    # role = serializers.CㄴㄷhoiceField(choices=User.RoleChoices)
+    email = serializers.EmailField()
+    password1 = serializers.CharField()
+    password2 = serializers.CharField()
 
     def get_cleaned_data(self):
         data = super().get_cleaned_data()
         data['username'] = self.validated_data.get('username', '')
-        # data['first_name'] = self.validated_data.get('first_name', '')
-        # data['gender'] = self.validated_data.get('gender', '')
-        # data['role'] = self.validated_data.get('role', '')
-
+        data['email'] = self.validated_data.get('email', '')
+        data['password1'] = self.validated_data.get('password1', '')
+        data['password2'] = self.validated_data.get('password2', '')
+        
         return data

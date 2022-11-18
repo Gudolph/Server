@@ -5,12 +5,12 @@ urlpatterns = [
     # accounts/password/change/
     # accounts/password/reset/
     # accounts/password/reset/confirm/
-    # accounts/login/
+    # accounts/login/  -> 로그인
     # accounts/logout/
     # accounts/user/
     # accounts/token/verify/
     # accounts/token/refresh/
-
+    # /accounts/registration/ -> 회원가입
     # 위의 url들 사용 가능
     path('', include('dj_rest_auth.urls')), 
     # 회원가입

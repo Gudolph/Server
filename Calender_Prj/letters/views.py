@@ -19,3 +19,4 @@ class CalenderViewSet(viewsets.ModelViewSet):
 class LetterViewSet(viewsets.ModelViewSet):
     queryset = Letter.objects.all()
     serializer_class = LetterSerializer
+    

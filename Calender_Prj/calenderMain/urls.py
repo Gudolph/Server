@@ -13,6 +13,7 @@ urlpatterns = [
     # http://127.0.0.1:8000/accounts/login -> 로그인
     # http://127.0.0.1:8000/accounts/user -> 현재 유저가 누구인지 확인
     # http://127.0.0.1:8000/accounts/logout -> 로그아웃
+    
     # http://127.0.0.1:8000/calenderMain/my-calender -> 작성한 쪽지 보기, 쪽지 생성 : 임시로 만든거라 수정 예정
     path('', include(router.urls)),
     # path("", views.home, name='home'),

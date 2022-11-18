@@ -70,6 +70,7 @@ INSTALLED_APPS = [
 
     # locals app
     "accounts",
+    "letters",
     "calenderMain",
 ]
 

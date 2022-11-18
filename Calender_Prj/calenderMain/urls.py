@@ -7,8 +7,9 @@ from rest_framework.routers import DefaultRouter
 # http://127.0.0.1:8000/calenderMain/
 
 router = DefaultRouter()
-# router.register(r'my-calender', views.home, basename="my-calender")
+router.register(r'my-calender', views.ShowLetterViewSet, basename="my-calender")
 urlpatterns = [
+    # http://127.0.0.1:8000/calenderMain/my-calender
     path('', include(router.urls)),
-    path('', views.home, name='home'),
+    # path("", views.home, name='home'),
 ]

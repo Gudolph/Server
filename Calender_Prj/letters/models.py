@@ -17,6 +17,7 @@ class Letter(models.Model):
     nickname = models.CharField(max_length=128, blank=True)
     content = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add = True, null=True, blank=True)
+    is_opened = models.BooleanField(default=False) # open 여부
 
     def __str__(self):
         return self.calender

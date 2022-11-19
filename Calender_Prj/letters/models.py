@@ -14,10 +14,11 @@ class Calender(models.Model):
 # 쪽지
 class Letter(models.Model):
     calender = models.ForeignKey(Calender, on_delete=models.CASCADE,related_name='letters', null=True, blank=True)
+
     nickname = models.CharField(max_length=128, blank=True)
     content = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add = True, null=True, blank=True)
     is_opened = models.BooleanField(default=False) # open 여부
 
     def __str__(self):
-        return self.calender
+        return self.nickname

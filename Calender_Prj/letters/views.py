@@ -21,9 +21,16 @@ class CalenderViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
-    
+
+    def get_queryset(self):
+        user = self.request.user
+        return Calender.objects.filter(owner=user)
+
     def list(self, request):
         return super().list(request)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
     
     # def retrieve(self, request, pk=None):
     #     pass  
@@ -37,15 +44,24 @@ class CalenderViewSet(viewsets.ModelViewSet):
     # def destroy(self, request, pk=None):
     #     pass
     
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-        
-    def get_queryset(self):
-        user = self.request.user
-        return Calender.objects.filter(owner=user)
 
 # 쪽지
 class LetterViewSet(viewsets.ModelViewSet):
     queryset = Letter.objects.all()
     serializer_class = LetterSerializer
+
+    # def get_permissions(self):
+    #     permission_classes = [AllowAny]
+    #     return [permission() for permission in permission_classes]
+
+    # def get_queryset(self):
+    #     if Letter.objects.all() == None:
+
+    #     return 
+
+    # def list(self, request):
+    #     return super().list(request)
+
+    # def perform_create(self, serializer):
+    #     serializer.save()
     

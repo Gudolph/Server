@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 class Calender(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=128, blank=True, null=True)
-
-    def __str__(self):
-        return self.name
+    # num = models.IntegerField(default=0, blank=True, null=True)
+    # def __str__(self):
+    #     return self.name
 
 # 쪽지
 class Letter(models.Model):
@@ -19,5 +19,5 @@ class Letter(models.Model):
     created_at = models.DateTimeField(auto_now_add = True, null=True, blank=True)
     is_opened = models.BooleanField(default=False) # open 여부
 
-    def __str__(self):
-        return self.calender
+    # def __str__(self):
+    #     return self.nickname

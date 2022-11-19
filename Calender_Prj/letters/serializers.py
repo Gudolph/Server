@@ -20,7 +20,7 @@ class CalenderSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Calender
-        fields = ("pk", "owner", "name", "letters")
+        fields = ("pk", "owner", "name","num", "letters")
         read_only_fields = ("owner",)
     
     def get_username(self, obj):

@@ -47,30 +47,6 @@ class CalenderViewSet(viewsets.ModelViewSet):
         
     def get_queryset(self):
         user = self.request.user
-        
-        # 더미 데이터
-        # letter = get_object_or_404(Letter, pk=2)
-        
-        # self.letters.append(letter)
-        
-        # user = self.request.user
-        # calender = self.request.user.calender
-        
-        # open = datetime(2022, 12, 1)
-        # now = datetime.now()
-        
-        # # 24개 미만의 편지가 들어왔을 때 24개까지 sample data 넣어줌
-        # if open == now:
-        #     if (calender.num < 24):
-        #         while(calender.num == 24):
-        #             i = 2
-                    
-        #             # 편지 객체 넣어주기
-        #             letter = get_object_or_404(Letter, pk=i)
-        #             self.letters.append(letter)
-                    
-        #             i += 1
-        #             calender.num += 1
             
         return Calender.objects.filter(owner=user)
 
@@ -79,9 +55,9 @@ class LetterViewSet(viewsets.ModelViewSet):
     queryset = Letter.objects.all()
     serializer_class = LetterSerializer
     
-    # def perform_create(self, serializer):
-    #     calender = self.request.calender
-    #     calender.num += 1
+    def perform_create(self, serializer):
+        calender = self.request.user.calender
+        calender.num += 1
     
     def partial_update(self, request, *args, **kwargs):
             instance = self.get_object()

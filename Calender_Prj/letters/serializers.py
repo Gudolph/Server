@@ -6,11 +6,11 @@ from .models import *
 
 # 쪽지
 class LetterSerializer(serializers.ModelSerializer):
-    # receiver = serializers.ReadOnlyField(source='calender.name')
     class Meta:
         model = Letter
-        fields = ("pk", "calender", "nickname", "content", "created_at")
-        
+        fields = ("pk", "calender", "nickname", "content", "created_at", "is_opened")
+
+    
 
 # 캘린더
 class CalenderSerializer(serializers.ModelSerializer):
@@ -21,6 +21,7 @@ class CalenderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Calender
         fields = ("pk", "owner", "name", "letters")
+        read_only_fields = ("owner",)
     
     def get_username(self, obj):
         return obj.owner.username
